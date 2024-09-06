@@ -1,0 +1,5 @@
+**/.mvn
+**/node_modules
+backend/mvnw
+backend/mvnw.cmd
+**/.idea

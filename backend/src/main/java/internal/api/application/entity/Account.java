@@ -1,5 +1,6 @@
 package internal.api.application.entity;
 
+import internal.api.application.enums.BankAccountType;
 import internal.api.application.enums.LoanType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -29,5 +30,13 @@ public abstract class Account {
                                   double monthlyPayment, int loanDurationMonths,
                                   LoanType loanType){
         return new Loan(name, percentageRate, monthlyPayment, loanDurationMonths, loanType);
+    }
+
+    public static BankAccount savingsAccount(String name, double interestRate, double balance){
+        return new BankAccount(name, interestRate, balance, BankAccountType.SAVINGS);
+    }
+
+    public static BankAccount checkingAccount(String name, double interestRate, double balance){
+        return new BankAccount(name, interestRate, balance, BankAccountType.CHECKING);
     }
 }

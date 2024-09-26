@@ -20,17 +20,13 @@ public class BankAccount extends Account{
     @Column(name = "interest_rate")
     private Double interestRate;
 
-    @Column(name = "balance")
-    private Double balance;
-
     @Enumerated(EnumType.STRING)
     private BankAccountType bankAccountType;
 
-    public BankAccount(String name, double interestRate,
+    protected BankAccount(String name, double interestRate,
                        double balance, BankAccountType bankAccountType){
-        super(name);
+        super(name, balance);
         this.interestRate = interestRate;
-        this.balance = balance;
         this.bankAccountType = bankAccountType;
     }
 }

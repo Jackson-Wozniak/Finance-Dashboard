@@ -22,14 +22,18 @@ public abstract class Account {
     @Column(name = "account_name")
     private String name;
 
-    protected Account(String name){
+    @Column(name = "balance")
+    private Double balance;
+
+    protected Account(String name, double balance){
         this.name = name;
+        this.balance = balance;
     }
 
-    public static Loan createLoan(String name, double percentageRate,
+    public static Loan loan(String name, double balance, double percentageRate,
                                   double monthlyPayment, int loanDurationMonths,
                                   LoanType loanType){
-        return new Loan(name, percentageRate, monthlyPayment, loanDurationMonths, loanType);
+        return new Loan(name, balance, percentageRate, monthlyPayment, loanDurationMonths, loanType);
     }
 
     public static BankAccount savingsAccount(String name, double interestRate, double balance){

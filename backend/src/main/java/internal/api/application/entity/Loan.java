@@ -28,10 +28,10 @@ public class Loan extends Account{
     @Enumerated(EnumType.STRING)
     private LoanType loanType;
 
-    protected Loan(String name, double percentageRate,
+    protected Loan(String name, double balance, double percentageRate,
                    double monthlyPayment, int loanDurationMonths,
                    LoanType loanType){
-        super(name);
+        super(name, balance);
         this.percentageRate = percentageRate;
         this.monthlyPayment = monthlyPayment;
         this.loanDurationMonths = loanDurationMonths;
